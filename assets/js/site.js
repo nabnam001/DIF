@@ -152,8 +152,18 @@
   }
 
   /* ---------- Search ---------- */
-  const BASE = (document.querySelector("base") && document.querySelector("base").getAttribute("href")) || "/";
-  const SEARCH_INDEX = isEN ? BASE + "assets/search-en.json" : BASE + "assets/search.json";
+  // Use script's own URL to find /assets/ regardless of page depth
+  function assetsBase() {
+    var scripts = document.querySelectorAll("script[src]");
+    for (var i = 0; i < scripts.length; i++) {
+      var src = scripts[i].src;
+      var idx = src.indexOf("/assets/js/site.js");
+      if (idx !== -1) return src.substring(0, idx + 8); // up to and including /assets/
+    }
+    return "./assets/";
+  }
+  const ASSETS = assetsBase();
+  const SEARCH_INDEX = isEN ? ASSETS + "search-en.json" : ASSETS + "search.json";
   const searchTrigger = document.querySelector("[data-search-open]");
   let searchData = null;
   let searchModal = null;
@@ -300,8 +310,10 @@
   /* ---------- Service worker (PWA) ---------- */
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      const swBase = (document.querySelector("base") && document.querySelector("base").getAttribute("href")) || "/";
-      navigator.serviceWorker.register(swBase + "sw.js", { scope: swBase }).catch(() => {});
+      // Service worker scope is the parent of /assets/
+      var swUrl = ASSETS.replace(/\/assets\/$/, "/sw.js");
+      var swScope = ASSETS.replace(/\/assets\/$/, "/");
+      navigator.serviceWorker.register(swUrl, { scope: swScope }).catch(() => {});
     });
   }
 })();
