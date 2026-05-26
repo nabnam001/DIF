@@ -152,7 +152,8 @@
   }
 
   /* ---------- Search ---------- */
-  const SEARCH_INDEX = isEN ? "/assets/search-en.json" : "/assets/search.json";
+  const BASE = (document.querySelector("base") && document.querySelector("base").getAttribute("href")) || "/";
+  const SEARCH_INDEX = isEN ? BASE + "assets/search-en.json" : BASE + "assets/search.json";
   const searchTrigger = document.querySelector("[data-search-open]");
   let searchData = null;
   let searchModal = null;
@@ -299,7 +300,8 @@
   /* ---------- Service worker (PWA) ---------- */
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
-      navigator.serviceWorker.register("/sw.js").catch(() => {});
+      const swBase = (document.querySelector("base") && document.querySelector("base").getAttribute("href")) || "/";
+      navigator.serviceWorker.register(swBase + "sw.js", { scope: swBase }).catch(() => {});
     });
   }
 })();
