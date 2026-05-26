@@ -1,0 +1,88 @@
+# Dansk-Israelsk Forening Aarhus — Apache configuration
+
+# Force HTTPS + canonical host
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.dif-aarhus.dk/$1 [R=301,L]
+
+# Strip non-www → www (or flip if you prefer apex)
+RewriteCond %{HTTP_HOST} ^dif-aarhus\.dk$ [NC]
+RewriteRule ^(.*)$ https://www.dif-aarhus.dk/$1 [R=301,L]
+
+# Custom 404
+ErrorDocument 404 /404.html
+
+# Default index
+DirectoryIndex index.html index.htm
+
+# Legacy URL redirects (301 — preserves SEO)
+Redirect 301 /forside.htm           /
+Redirect 301 /index.htm             /
+Redirect 301 /english.htm           /en/
+Redirect 301 /index-eng.htm         /en/
+Redirect 301 /aktiviteter.htm       /aktiviteter.html
+Redirect 301 /aktiviteter1.htm      /aktiviteter.html
+Redirect 301 /aktiviteter2.htm      /aktiviteter.html
+Redirect 301 /aktuelt.htm           /aktuelt.html
+Redirect 301 /medlemskab.htm        /medlemskab.html
+Redirect 301 /tilmelding.htm        /medlemskab.html#tilmelding
+Redirect 301 /kontakt-dif.htm       /kontakt.html
+Redirect 301 /historie.htm          /om-foreningen.html
+Redirect 301 /dk-links.htm          /links.html
+Redirect 301 /isr-links.htm         /links.html
+Redirect 301 /fakta.htm             /fakta.html
+Redirect 301 /foreninger.htm        /foreninger.html
+Redirect 301 /helligdage.htm        /fakta.html#helligdage
+Redirect 301 /hatikvah.htm          /fakta.html#hatikva
+Redirect 301 /kort.htm              /fakta.html#kort
+Redirect 301 /ivrit.htm             /fakta.html#hebraisk
+Redirect 301 /kosher.htm            /fakta.html#kosher
+Redirect 301 /kendte-navne.htm      /kendte-navne.html
+Redirect 301 /humor.htm             /kultur.html#humor
+Redirect 301 /filmogboeger.htm      /kultur.html
+Redirect 301 /drybones.htm          /kultur.html#drybones
+Redirect 301 /danskejoeder.htm      /danske-joeder.html
+Redirect 301 /menu.htm              /
+Redirect 301 /menu-eng.htm          /en/
+Redirect 301 /venstre.htm           /
+Redirect 301 /venstre-eng.htm       /en/
+
+# Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml text/xml application/xml
+</IfModule>
+
+# Cache headers
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 60 days"
+  ExpiresByType image/jpeg "access plus 60 days"
+  ExpiresByType image/png "access plus 60 days"
+  ExpiresByType image/webp "access plus 60 days"
+  ExpiresByType image/gif "access plus 60 days"
+  ExpiresByType video/mp4 "access plus 60 days"
+  ExpiresByType video/webm "access plus 60 days"
+  ExpiresByType application/manifest+json "access plus 7 days"
+</IfModule>
+
+# Security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # Cache policy
+  <FilesMatch "\.(css|js|svg|jpg|jpeg|png|webp|gif|woff2)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>
+
+# Mime types
+AddType image/svg+xml .svg
+AddType application/manifest+json .webmanifest
+AddType image/webp .webp
+AddType video/mp4 .mp4
+AddType video/webm .webm

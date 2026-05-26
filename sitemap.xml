@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.dif-aarhus.dk/</loc>
+    <xhtml:link rel="alternate" hreflang="da" href="https://www.dif-aarhus.dk/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.dif-aarhus.dk/en/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url><loc>https://www.dif-aarhus.dk/aktuelt.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/om-foreningen.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/aktiviteter.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/foredragsraekken-arkiv.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/medlemskab.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/fakta.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/foreninger.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/kultur.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/links.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/danske-joeder.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/oktober-43.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/stoet-israel.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/kontakt.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/privatlivspolitik.html</loc><priority>0.3</priority></url>
+
+  <url>
+    <loc>https://www.dif-aarhus.dk/en/</loc>
+    <priority>0.9</priority>
+  </url>
+  <url><loc>https://www.dif-aarhus.dk/en/news.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/about.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/events.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/lecture-archive.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/membership.html</loc><priority>0.7</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/culture.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/danish-jews.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/october-43.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/support-israel.html</loc><priority>0.5</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/contact.html</loc><priority>0.6</priority></url>
+  <url><loc>https://www.dif-aarhus.dk/en/privacy.html</loc><priority>0.3</priority></url>
+</urlset>

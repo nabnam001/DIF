@@ -1,0 +1,16 @@
+{
+  "name": "Dansk-Israelsk Forening Aarhus",
+  "short_name": "DIF Aarhus",
+  "description": "Mellemfolkelig venskabsforening i Aarhus siden 1976.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0c2240",
+  "theme_color": "#0c2240",
+  "lang": "da",
+  "dir": "ltr",
+  "icons": [
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/img/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
